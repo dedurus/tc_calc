@@ -1,0 +1,97 @@
+body {
+  color: #444;
+  font-family: Verdana,Geneva,sans-serif;
+  font-size: 14px;
+  line-height: 1.2em;
+}
+/* --- helplers --- */
+.mT5{
+  margin-top: 5px;
+}
+.mT10{
+  margin-top: 10px;
+}
+.mT15{
+  margin-top: 15px;
+}
+.mT50{
+  margin-top: 50px;
+}
+.mLR0{
+  margin-left: 0;
+  margin-right: 0;
+}
+.mLR15{
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.pL5{
+  padding-left: 5px;
+}
+.pLR20{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.greenBg{
+  background-color: #139b68;
+}
+.liteGreenBg{
+  background-color: rgba(68,163,132, 0.6);
+}
+.font16{
+  font-size: 16px;
+}
+
+.navbar-default .navbar-brand,
+.talentclick-title {
+  font-size: 40px;
+  color: #139b68;
+  letter-spacing: -1px;
+  font-weight: 700;
+  text-align: center;
+  transition: font-size 500ms;
+}
+h1.green_heading{
+  font-size: 40px;
+  color: #139b68;
+}
+.calc_wrapper{
+  border-radius: 5px;
+  color: #fff;
+  padding: 20px;
+}
+hr.divider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #fff;
+}
+.form-control_focused {
+    border-color: #CFFFED;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(207,255,237,1);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(207,255,237,1);
+}
+.noUi-horizontal .noUi-handle{
+  width: 28px;
+  left: -14px;
+}
+.noUi-handle:before{
+  left: 7px;
+}
+.noUi-connect{
+  background-color: #CFFFED;
+  box-shadow: inset 0 0 3px rgba(52,202,103,1.0);
+}
+.noUi-marker{
+  background: #fff;
+}
+.noUi-pips{
+  color: #fff;
+}
+.form-control#employees_num{
+  border-radius: 5px;
+  /* padding: 10px;
+  font-size: 18px;
+  line-height: 32px; */
+}
