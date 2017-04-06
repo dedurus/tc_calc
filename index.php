@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/nouislider.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet">
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -89,40 +91,143 @@
 
 
                 <div class="col-md-2 mT15 text-center">
-                    <form class="" method="post">
+                    <!-- <form class="" method="post"> -->
                     <div class="form-group">
                         <label for="employees_num">Number of Employees</label>
                         <input class="form-control input-lg" id="employees_num" type="number" value="10">
                     </div>
-                    </form>
+                    <!-- </form> -->
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-md-12 mT5 text-center font16">
-                  Fees for <span class="emp_num"></span> employees
+                <div class="col-md-12 mT25 text-center font16">
+                  <p class="lead">Fees for <span class="emp_num"></span> employees</p>
                 </div>
               </div>
 
-              <div class="row mT5 text-center">
-                <div class="col-md-3">
-a
+              <div class="row mT15 text-center mLR0 liteBlueBg table_header">
+                <div class="col-xs-4">
+                  Number of Employees <span class="span_small">(from - to)</span>
                 </div>
-                <div class="col-md-3">
-b
+                <div class="col-xs-4">
+                  Monthly Fee Per Employee
                 </div>
-                <div class="col-md-3">
-c
+                <div class="col-xs-4">
+                  Monthly Payment * <span class="span_small">(no tax applied)</span>
                 </div>
-                                <div class="col-md-3">
-                c
-                                </div>
+
               </div>
 
+              <div class="row mT15 text-center mLR0 table_row">
+                <div class="col-xs-4">
+                  10 - 19
+                </div>
+                <div class="col-xs-4">
+                  $4.<sup>99</sup>
+                </div>
+                <div class="col-xs-4">
+                  <div id="e_10_19" class="monthly_prices"></div>
+                </div>
+
+              </div>
+
+              <div class="row mT15 text-center mLR0 table_row">
+                <div class="col-xs-4">
+                  20 - 49
+                </div>
+                <div class="col-xs-4">
+                  $4.<sup>60</sup>
+                </div>
+                <div class="col-xs-4">
+                  <div id="e_20_49" class="monthly_prices"></div>
+                </div>
+              </div>
+
+              <div class="row mT15 text-center mLR0 table_row">
+                <div class="col-xs-4">
+                  50 - 99
+                </div>
+                <div class="col-xs-4">
+                  $4.<sup>20</sup>
+                </div>
+                <div class="col-xs-4">
+                  <div id="e_50_99" class="monthly_prices"></div>
+                </div>
+              </div>
+
+              <div class="row mT15 text-center mLR0 table_row">
+                <div class="col-xs-4">
+                  100 - 250
+                </div>
+                <div class="col-xs-4">
+                  $3.<sup>80</sup>
+                </div>
+                <div class="col-xs-4">
+                  <div id="e_100_250" class="monthly_prices"></div>
+                </div>
+
+              </div>
+
+
+              <div class="row mT15 text-center mLR0">
+                <hr class="divider">
+                <div class="col-md-6">
+                  <div class="tax_header liteGreenBg pTB10 mTB10">
+                   Tax
+                  </div>
+                  <label for="province">Province</label>
+                  <select class="form-control" id="province">
+                    <option disabled selected value>Select Province</option>
+
+                  </select>
+                </div>
+                <div class="col-md-6 bL">
+                  <div class="row mTB10 ">
+                    <div class="col-xs-5 text-left">
+                      Total Monthly Payment *
+                    </div>
+                    <div class="col-xs-7 liteGreenBg">
+                      <div class="pTB15" id="total_monthly"></div>
+                    </div>
+                  </div>
+
+                  <div class="row mTB10 pT15 ">
+                    <div class="col-xs-5 text-left">
+                      Discounted Annual Pre-Payment **
+                    </div>
+                    <div class="col-xs-7 liteBlueBg">
+                      <div class="pTB15" id="total_annual"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- ./ calc_wrapper -->
+
+            <div class="col-md-8 col-md-offset-2 shadow mT10">
+              <p>For companies with >250 employees, contact TalentClick for pricing (1-877-723-3778 or sales@talentclick.com)</p>
+              <p>The # employees will be reviewed yearly and pricing may be adjusted.</p>
+              <p><b>*</b> Monthly payments must be via credit card with automatic pre-approval. 12 consecutive monthly payments will be charged.</p>
+              <p><b>**</b> Full annual amount must be paid in advance using credit card, and will qualify for an additional 15% discount.</p>
             </div>
 
         </div><!-- ./row -->
     </div><!-- ./ container -->
+
+    <footer class="footer">
+        <div class="container">
+
+            <div class="row fixed_seq">
+                <div class="col-md-6">
+                © <span id="current_year"></span> TalentClick Workforce Solutions Inc
+                </div>
+                <div class="col-md-6 text-right">
+                  Call us at 1.877.723.3778 or email info@talentclick.com
+                </div>
+            </div>
+        </div><!-- ./ container -->
+        </footer>
 
 
 

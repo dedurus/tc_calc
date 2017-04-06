@@ -1,0 +1,67 @@
+[
+ {
+    "province_name": "Alberta",
+    "tax_rate": "5",
+    "type": "GST"
+ },
+ {
+    "province_name": "British Columbia",
+    "tax_rate": "5",
+    "type": "GST"
+ },
+ {
+    "province_name": "Manitoba",
+    "tax_rate": "5",
+    "type": "GST"
+ },
+ {
+    "province_name": "New Brunswick",
+    "tax_rate": "15",
+    "type": "HST"
+ },
+  {
+    "province_name": "Newfoundland & Labrador",
+    "tax_rate": "15",
+    "type": "HST"
+ },
+  {
+    "province_name": "Northwest Territories",
+    "tax_rate": "5",
+    "type": "GST"
+ },
+  {
+    "province_name": "Nova Scotia",
+    "tax_rate": "15",
+    "type": "HST"
+ },
+  {
+    "province_name": "Nunavut",
+    "tax_rate": "5",
+    "type": "GST"
+ },
+  {
+    "province_name": "Ontario",
+    "tax_rate": "13",
+    "type": "HST"
+ },
+  {
+    "province_name": "Prince Edward Island",
+    "tax_rate": "15",
+    "type": "HST"
+ },
+  {
+    "province_name": "Quebec",
+    "tax_rate": "5",
+    "type": "GST"
+ },
+  {
+    "province_name": "Saskatchewan",
+    "tax_rate": "5",
+    "type": "GST"
+ },
+  {
+    "province_name": "Yukon",
+    "tax_rate": "5",
+    "type": "GST"
+ }
+]
