@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="assets/css/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet">
 
+        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
