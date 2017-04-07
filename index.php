@@ -9,12 +9,12 @@
 
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
         <link rel="stylesheet" href="assets/css/nouislider.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet">
 
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -190,7 +190,7 @@
                       Total Monthly Payment *
                     </div>
                     <div class="col-xs-7 liteGreenBg">
-                      <div class="pTB15" id="total_monthly"></div>
+                      <div class="pTB15" id="total_monthly"></div> <i class="material-icons">add_shopping_cart</i>
                     </div>
                   </div>
 
