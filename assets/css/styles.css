@@ -40,9 +40,20 @@ body {
 .mT50{
   margin-top: 50px;
 }
+.mB10{
+  margin-bottom: 10px;
+}
+.mTB5{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .mTB10{
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.mTB15{
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .mLR0{
   margin-left: 0;
@@ -56,6 +67,10 @@ body {
 /* Paddings */
 .pL5{
   padding-left: 5px;
+}
+.pLR0{
+  padding-left: 0;
+  padding-right: 0;
 }
 .pLR20{
   padding-left: 20px;
@@ -91,6 +106,7 @@ body {
 }
 .lighterBlueBg{
   background-color: rgba(15, 36, 61, 0.18);
+  font-size: 24px;
 }
 
 /* Fonts */
@@ -117,6 +133,9 @@ body {
 }
 .bL{
   border-left: 1px solid #eee;
+}
+.inlined{
+  display: inline;
 }
 
 
@@ -189,4 +208,61 @@ hr.divider {
 .tax_header{
   font-size: 16px;
   font-weight: bold;
+}
+
+
+/* ----- Bootstrap Overrides --- */
+.btn{
+  border-radius: 0;
+  border: none;
+}
+.btn-blue, .btn-blue[disabled]:hover{
+  background-color: #073b94;
+  color: #fff;
+}
+
+.btn-blue:hover, .btn-blue:focus, .btn-blue:active{
+  color: #fff;
+  background-color: #004A7F;
+}
+
+/* ----- ./ Bootstrap Overrides --- */
+
+/* Flags */
+/* .tax_radio input[type=radio]:not(old){
+  width   : 28px;
+  margin  : 0;
+  padding : 0;
+  opacity : 0;
+}
+.tax_radio input[type=radio]:not(old) + label#canadian_flag{
+  background   : url('../img/canada.png') no-repeat 0 0;
+  width: 60px;
+  height: 30px;
+  opacity: 0.5;
+}
+.tax_radio input[type=radio]:not(old) + label#usa_flag{
+  background   : url('../img/usa.png') no-repeat 0 0;
+  width: 60px;
+  height: 30px;
+  opacity: 0.5;
+}
+.tax_radio input[type=radio]:checked + label{
+  opacity: 1;
+} */
+img.tax_flags{
+  opacity: 0.6;
+}
+img.tax_flags:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+img.tax_selected{
+  opacity: 1;
+}
+.nav > li > a{
+  color: #fff
+}
+.nav > li > a:hover{
+  color: #000
 }
