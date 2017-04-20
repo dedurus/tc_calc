@@ -85,6 +85,10 @@ body {
 .pT15{
   padding-top: 15px;
 }
+.pTB5{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 .pTB10{
   padding-top: 10px;
   padding-bottom: 10px;
@@ -134,8 +138,14 @@ body {
 .bL{
   border-left: 1px solid #eee;
 }
+.bR{
+  border-right: 1px solid #eee;
+}
 .inlined{
   display: inline;
+}
+.blocked{
+  display: block;
 }
 
 
@@ -157,6 +167,7 @@ h1.green_heading{
   border-radius: 5px;
   color: #fff;
   padding: 20px;
+  font-size: 16px;
 }
 hr.divider {
   margin-top: 10px;
@@ -209,9 +220,17 @@ hr.divider {
   font-size: 16px;
   font-weight: bold;
 }
-
+.real_time_calc{
+  display: none;
+}
+#total_monthly, #total_annual{
+  font-size: 20px;
+}
 
 /* ----- Bootstrap Overrides --- */
+h1, h3{
+  margin-top: 10px;
+}
 .btn{
   border-radius: 0;
   border: none;
@@ -225,6 +244,24 @@ hr.divider {
   color: #fff;
   background-color: #004A7F;
 }
+
+.nav-tabs.nav-justified>li>a{
+  background-color: #116d58;
+}
+.nav-tabs.nav-justified > li:not(.active) > a{
+  padding-top: 8px;
+}
+.nav-tabs.nav-justified>li>a:hover, .nav-tabs.nav-justified>li>a:focus{
+  background-color: #11874F;
+  color: #fff;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #ddd;
+}
+.nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:focus{
+  background-color: #fff;
+  color: #555;
+}
+
 
 /* ----- ./ Bootstrap Overrides --- */
 
@@ -265,4 +302,14 @@ img.tax_selected{
 }
 .nav > li > a:hover{
   color: #000
+}
+
+/* Responsive Parts */
+@media screen and (max-width: 1023px){
+  .bL{
+    border-left: none;
+  }
+  .bR{
+    border-right: none;
+  }
 }

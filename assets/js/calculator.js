@@ -56,6 +56,15 @@
         //
 
         //$('#total_annual').html('$' + annual_calc);
+
+
+        var active_tab = $('.tab-pane.active'),
+            tax_rate = active_tab.find('select').val();
+            if(active_tab.attr('id') == 'canada_tax'){
+                calculate_canada_prices(tax_rate);
+            }else if(active_tab.attr('id') == 'usa_tax'){
+                calculate_usa_prices();
+            }
     });
 
     slider.noUiSlider.on('end', function(value, handle){
@@ -86,7 +95,17 @@
 
         ann = calc_annual_price(employees_num.val(), arr[0], discount);
         console.log(ann);
-       // $('#total_annual').html('$' + ann);
+
+       var active_tab = $('.tab-pane.active'),
+           tax_rate = active_tab.find('select').val();
+           //console.log(active_tab.attr('id'));
+           //console.log(active_tab);
+           console.log(active_tab.find('select').val());
+           if(active_tab.attr('id') == 'canada_tax'){
+               calculate_canada_prices(tax_rate);
+           }else if(active_tab.attr('id') == 'usa_tax'){
+               calculate_usa_prices();
+           }
     });
 
     // ----------- price calc --------------- //
@@ -126,7 +145,7 @@
             price_not_formatted = (+emp_num) * arr[0],
             price = currency_formatted((+emp_num) * arr[0]);
             //price = ((+emp_num) * arr[0]).toFixed(2);
-//calculate_premium(selector)
+
         // add price to corresponding div
         $('#' + arr[1]).html('$' + price);
         // $('#total_monthly').html('$' + price);
@@ -209,7 +228,12 @@
         // enable order btns since we are applying taxes now
         $('#order_monthly, #order_annual').prop('disabled', false);
 
-        var emp = +$('#employees_num').val(),
+        // get tax rate from selected province
+        var active_tab = $('.tab-pane.active'),
+            tax_rate = active_tab.find('select').val();
+        calculate_canada_prices(tax_rate);
+
+        /*var emp = +$('#employees_num').val(),
             price_per_emp = get_price_by_range(emp)[0],
 
             flag = '<img src="assets/img/can20.png" alt="Canada">',
@@ -224,13 +248,8 @@
             monthly_added_premium = mothly_added_tax * fluctuation_index,
             annual_added_premium = annual_added_tax * fluctuation_index; // add Premium for Canada
 
-            console.log(typeof total_monthly);
-            console.log(typeof discount_annual);
-            console.log(mothly_added_tax);
-            console.log(annual_added_tax);/**/
-
         $('#total_monthly').html(flag + ' $' + currency_formatted(monthly_added_premium));
-        $('#total_annual').html(flag + ' $' + currency_formatted(annual_added_premium));
+        $('#total_annual').html(flag + ' $' + currency_formatted(annual_added_premium));*/
 
     });
 
@@ -239,8 +258,9 @@
     $('#us_states').on('change', function(){
         // enable order btns since we are applying taxes now
         $('#order_monthly, #order_annual').prop('disabled', false);
+        calculate_usa_prices();
 
-        var emp = +$('#employees_num').val(),
+        /*var emp = +$('#employees_num').val(),
             price_per_emp = get_price_by_range(emp)[0],
 
             flag = '<img src="assets/img/us20.png" alt="Canada">',
@@ -257,9 +277,63 @@
             console.log('annual_added_tax', annual_added_tax);
 
         $('#total_monthly').html(flag + ' $' + currency_formatted(mothly_added_tax));
-        $('#total_annual').html(flag + ' $' + currency_formatted(annual_added_tax));
+        $('#total_annual').html(flag + ' $' + currency_formatted(annual_added_tax));*/
 
     });
+
+    function calculate_canada_prices(tax_rate){
+        if(tax_rate){
+            var emp = +$('#employees_num').val(),
+                price_per_emp = get_price_by_range(emp)[0],
+
+                flag = '<img src="assets/img/can20.png" alt="Canada">',
+
+                total_monthly = +(price_per_emp * (+emp)).toFixed(2),
+                total_annual = total_monthly * 12,
+                discount_annual_sum = (total_annual * (discount/100)).toFixed(2),
+                discount_annual = +(total_annual - discount_annual_sum).toFixed(2),
+                //tax = $(this).val(),
+                tax = (+tax_rate),
+                mothly_added_tax = (total_monthly + (total_monthly * (tax/100))).toFixed(2),
+                annual_added_tax = (discount_annual + (discount_annual * (tax/100))).toFixed(2),
+                monthly_added_premium = mothly_added_tax * fluctuation_index,
+                annual_added_premium = annual_added_tax * fluctuation_index, // add Premium for Canada
+                save = ((12 * monthly_added_premium.toFixed(2)) - annual_added_premium.toFixed(2)).toFixed(2); // save amount for annual subcription compared to month-by-month
+
+                /*console.log(monthly_added_premium);
+                console.log(annual_added_premium);
+                console.log('Canada', save);*/
+
+            $('#total_monthly').html(flag + ' $' + currency_formatted(monthly_added_premium));
+            $('#total_annual').html(flag + ' $' + currency_formatted(annual_added_premium));
+            $('#saved').html('You save $' + currency_formatted(save));
+        }
+    }
+
+    function calculate_usa_prices(){
+        // TODO: USA tax rate is still fixed to 5% for each state
+
+            var emp = +$('#employees_num').val(),
+                price_per_emp = get_price_by_range(emp)[0],
+
+                flag = '<img src="assets/img/us20.png" alt="Canada">',
+
+                total_monthly = +(price_per_emp * (+emp)).toFixed(2),
+                total_annual = total_monthly * 12,
+                discount_annual_sum = (total_annual * (discount/100)).toFixed(2),
+                discount_annual = +(total_annual - discount_annual_sum).toFixed(2),
+
+                mothly_added_tax = (total_monthly + (total_monthly * (5/100))).toFixed(2), // FIXED TAX RATE FOR USA STATES, for now
+                annual_added_tax = (discount_annual + (discount_annual * (5/100))).toFixed(2), // FIXED TAX RATE FOR USA STATES, for now
+                save = ((12 * mothly_added_tax) - annual_added_tax).toFixed(2); // save amount for annual subcription compared to month-by-month
+                /*console.log(mothly_added_tax);
+                console.log(annual_added_tax);
+                console.log('USA', save);*/
+
+            $('#total_monthly').html(flag + ' $' + currency_formatted(mothly_added_tax));
+            $('#total_annual').html(flag + ' $' + currency_formatted(annual_added_tax));
+            $('#saved').html('You save $' + currency_formatted(save));
+    }
 
     // format curency HTML
     function currency_formatted(amount) {
@@ -286,20 +360,12 @@
 
 
 
-// flag test
-/*$('#flags').on('change', function(e){
-    console.log(e.target.value);
-    if(e.target.value == 'usa'){
-        console.log('USA');
-    }else if(e.target.value == 'ca'){
-        console.log('CANADA');
-    }
-});*/
-$('img.tax_flags').on('click', function(e){
+// flag
+/*$('img.tax_flags').on('click', function(e){
     console.log(e.target.id);
     $('img.tax_flags').removeClass('tax_selected');
     $(this).toggleClass('tax_selected');
-});
+});*/
 
 /*$('#myTabs a').click(function (e) {
   e.preventDefault()
@@ -317,13 +383,19 @@ $('#canada_tax').tab('show');
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
    // console.log(e.target); // newly activated tab
     //console.log(e.relatedTarget); // previous active tab
-
-    var current_tab = e.target.id,
+   /* var active_tab = $('.tab-pane.active');
+    console.log(active_tab);
+    console.log(active_tab.find('select').val());*/
+    var active_tab = $('.tab-pane.active'),
+        tax_rate = active_tab.find('select').val(),
+        current_tab = e.target.id,
         current_flag;
     if(current_tab == 'tax_can'){
         current_flag = 'can20.png';
+        calculate_canada_prices(tax_rate);
     }else if(current_tab == 'tax_usa'){
         current_flag = 'us20.png';
+        calculate_usa_prices();
     }
     // dusplay flag in total prices
     //$('.current_flag').html('<img src="assets/img/' + current_flag + '">');

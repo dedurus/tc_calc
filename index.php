@@ -59,13 +59,14 @@
         </div><!-- ./row -->
     </div><!-- ./ container -->
 
-    <div class="container mT50">
+    <div class="container mT25">
         <div class="row">
 
             <div class="col-md-8 col-md-offset-2 greenBg calc_wrapper">
               <div class="row">
                 <div class="col-md-12 mT5 text-center">
-                  Use the slider or manually insert the number of employees
+                  User the slider or manually insert the number of employees in your organization
+                  <span class="small blocked pT5">(or in your business unit, department, or division, if this tool will be used on a smaller scale)</span>
                   <hr class="divider">
                 </div>
               </div>
@@ -86,87 +87,91 @@
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-md-12 mT25 text-center font16">
-                  <p class="lead">Fees for <span class="emp_num"></span> employees</p>
-                </div>
-              </div>
+              <div class="real_time_calc">
 
-              <div class="row mT15 text-center mLR0 liteBlueBg table_header">
-                <div class="col-xs-4">
-                  Number of Employees <span class="span_small">(from - to)</span>
-                </div>
-                <div class="col-xs-4">
-                  Monthly Fee Per Employee
-                </div>
-                <div class="col-xs-4">
-                  Monthly Payment * <span class="span_small">(no taxes applied)</span>
+                <div class="row">
+                  <div class="col-md-12 mT25 text-center font16">
+                    <p class="lead">Fees for <span class="emp_num"></span> employees</p>
+                  </div>
                 </div>
 
-              </div>
+                <div class="row mT15 text-center mLR0 liteBlueBg table_header">
+                  <div class="col-xs-4">
+                    Number of Employees <span class="span_small">(from - to)</span>
+                  </div>
+                  <div class="col-xs-4">
+                    Monthly Fee Per Employee
+                  </div>
+                  <div class="col-xs-4">
+                    Monthly Payment * <span class="span_small">(no taxes applied)</span>
+                  </div>
 
-              <div class="row mT15 text-center mLR0 table_row">
-                <div class="col-xs-4">
-                  10 - 19
-                </div>
-                <div class="col-xs-4">
-                  $4.<sup>99</sup>
-                </div>
-                <div class="col-xs-4">
-                  <div id="e_10_19" class="monthly_prices"></div>
-                </div>
-
-              </div>
-
-              <div class="row mT15 text-center mLR0 table_row">
-                <div class="col-xs-4">
-                  20 - 49
-                </div>
-                <div class="col-xs-4">
-                  $4.<sup>60</sup>
-                </div>
-                <div class="col-xs-4">
-                  <div id="e_20_49" class="monthly_prices"></div>
-                </div>
-              </div>
-
-              <div class="row mT15 text-center mLR0 table_row">
-                <div class="col-xs-4">
-                  50 - 99
-                </div>
-                <div class="col-xs-4">
-                  $4.<sup>20</sup>
-                </div>
-                <div class="col-xs-4">
-                  <div id="e_50_99" class="monthly_prices"></div>
-                </div>
-              </div>
-
-              <div class="row mT15 text-center mLR0 table_row">
-                <div class="col-xs-4">
-                  100 - 250
-                </div>
-                <div class="col-xs-4">
-                  $3.<sup>80</sup>
-                </div>
-                <div class="col-xs-4">
-                  <div id="e_100_250" class="monthly_prices"></div>
                 </div>
 
-              </div>
+                <div class="row mT15 text-center mLR0 table_row">
+                  <div class="col-xs-4">
+                    10 - 19
+                  </div>
+                  <div class="col-xs-4">
+                    $4.<sup>99</sup>
+                  </div>
+                  <div class="col-xs-4">
+                    <div id="e_10_19" class="monthly_prices"></div>
+                  </div>
+
+                </div>
+
+                <div class="row mT15 text-center mLR0 table_row">
+                  <div class="col-xs-4">
+                    20 - 49
+                  </div>
+                  <div class="col-xs-4">
+                    $4.<sup>60</sup>
+                  </div>
+                  <div class="col-xs-4">
+                    <div id="e_20_49" class="monthly_prices"></div>
+                  </div>
+                </div>
+
+                <div class="row mT15 text-center mLR0 table_row">
+                  <div class="col-xs-4">
+                    50 - 99
+                  </div>
+                  <div class="col-xs-4">
+                    $4.<sup>20</sup>
+                  </div>
+                  <div class="col-xs-4">
+                    <div id="e_50_99" class="monthly_prices"></div>
+                  </div>
+                </div>
+
+                <div class="row mT15 text-center mLR0 table_row">
+                  <div class="col-xs-4">
+                    100 - 250
+                  </div>
+                  <div class="col-xs-4">
+                    $3.<sup>80</sup>
+                  </div>
+                  <div class="col-xs-4">
+                    <div id="e_100_250" class="monthly_prices"></div>
+                  </div>
+
+                </div>
+
+              </div><!-- ./real_time_calc -->
 
 
               <div class="row mT15 text-center mLR0">
                 <hr class="divider">
 
-                <div class="col-md-6">
+                <div class="col-md-6 bR">
 
-                  <div class="tax_header liteGreenBg pTB10 mTB10">
+                  <!-- <div class="tax_header liteGreenBg pTB10 mTB10">
                    Tax
-                  </div>
+                  </div> -->
 
                   <div class="row mLR15">
-                    <div class="col-md-12 mTB5">Select your country</div>
+                    <div class="col-md-12 tax_header liteGreenBg pTB10 mTB10">Select your country</div>
 
 
                         <!-- <div class="col-xs-6">
@@ -186,7 +191,7 @@
 
                           <!-- Tab panes -->
                           <div class="tab-content">
-                              <div role="tabpanel" class="tab-pane active mT10" id="canada_tax">
+                              <div role="tabpanel" class="tab-pane active mT10 pT10" id="canada_tax">
 
                                 <label class="col-xs-12" for="province"><img src="assets/img/can40.png" alt="Canada"> Select Province</label>
                                 <div class="col-xs-12">
@@ -197,7 +202,7 @@
 
                               </div>
 
-                              <div role="tabpanel" class="tab-pane fade mT10" id="usa_tax">
+                              <div role="tabpanel" class="tab-pane fade mT10 pT10" id="usa_tax">
                                   <label class="col-xs-12" for="us_states"><img src="assets/img/us40.png" alt="USA"> Select State</label>
                                   <div class="col-xs-12">
                                     <select class="form-control" id="us_states">
@@ -275,12 +280,12 @@
                 </div>
 
 
-                <div class="col-md-6 bL">
+                <div class="col-md-6">
                   <div class="row mTB10 ">
-                    <div class="col-xs-5 text-left">
+                    <div class="col-xs-6 text-left mT15">
                       Total Monthly Payment *
                     </div>
-                    <div class="col-xs-7 liteGreenBg pLR0">
+                    <div class="col-xs-6 liteGreenBg pLR0">
                       <div class="pTB15">
                         <span class="current_flag"></span>
                         <div class="inlined" id="total_monthly"></div>
@@ -291,13 +296,14 @@
                   </div>
 
                   <div class="row mTB10 pT15 ">
-                    <div class="col-xs-5 text-left">
+                    <div class="col-xs-6 text-left mT15">
                       Discounted Annual Pre-Payment **
                     </div>
-                    <div class="col-xs-7 liteBlueBg pLR0">
-                      <div class="pTB15">
+                    <div class="col-xs-6 liteBlueBg pLR0">
+                      <div class="pT15">
                         <span class="current_flag"></span>
                         <div class="inlined" id="total_annual"></div>
+                        <span class="blocked small pTB5 mT10" id="saved"></span>
                       </div>
                       <button disabled type="button"  id="order_annual" class="btn btn-warning btn-block"> <i class="fa fa-shopping-cart"></i> Order</button>
                     </div>
