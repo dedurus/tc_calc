@@ -461,7 +461,7 @@ $('#payment_proceed').on('submit', function(e){
     var postData = $(this).serializeArray();
 
     $.ajax({
-        url: 'http://localhost/tests/php/woocommerce_api/place_order.php',
+        url: 'api/place_order.php',
         type: "POST",
         data: postData,
         success: function(data, textStatus, jqXHR) {

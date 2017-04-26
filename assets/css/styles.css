@@ -313,3 +313,34 @@ img.tax_selected{
     border-right: none;
   }
 }
+
+/* MODALS */
+.center {
+    margin-top:50px;
+}
+
+.modal-header {
+  padding-bottom: 5px;
+}
+
+.modal-footer {
+      padding: 0;
+  }
+
+.modal-footer .btn-group button {
+  height:40px;
+  border-top-left-radius : 0;
+  border-top-right-radius : 0;
+  border: none;
+  border-right: 1px solid #ddd;
+}
+
+.modal-footer .btn-group:last-child > button {
+  border-right: 0;
+}
+
+input:required:invalid, input:focus:invalid {
+  /* insert your own styles for invalid form input */
+  -moz-box-shadow: none;
+  border-color: #a94442;
+}
