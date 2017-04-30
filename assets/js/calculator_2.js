@@ -60,10 +60,11 @@
 
         var active_tab = $('.tab-pane.active'),
             tax_rate = active_tab.find('select').val();
+            console.log(tax_rate);
             if(active_tab.attr('id') == 'canada_tax'){
                 calculate_canada_prices(tax_rate);
             }else if(active_tab.attr('id') == 'usa_tax'){
-                calculate_usa_prices();
+                calculate_usa_prices(tax_rate);
             }
     });
 
@@ -104,7 +105,7 @@
            if(active_tab.attr('id') == 'canada_tax'){
                calculate_canada_prices(tax_rate);
            }else if(active_tab.attr('id') == 'usa_tax'){
-               calculate_usa_prices();
+               calculate_usa_prices(tax_rate);
            }
     });
 
@@ -119,13 +120,14 @@
         'e_250_plus': '3.50' // this needs to be definied
     };
 
+    // ------ TODO:
     // -- make this dynamic !!!!!!!
     var discount = 15;
 
     var fluctuation_index = 1.15; // currency exchange rate USD/CAD
     // ------------ ./ make dynamic !!!!
 
-    $('#e_10_19').html('$49.<sup>90</sup>');
+    //$('#e_10_19').html('$49.<sup>90</sup>');
     //$('#total_annual').html('$508.<sup>98</sup>');
     //// !!!!!!!!!!!!!!!!!!!!!!!
 
@@ -212,7 +214,8 @@
 
 
     // tax select box for Canada
-    $.getJSON( "assets/json/provinces.json", function( data ) {
+    $.getJSON("assets/json/provinces.json", function( data ) {
+console.log(typeof data);
      var html = '';
       //var items = '';
       $.each( data, function( key, val ) {
@@ -221,6 +224,18 @@
 
         $('#province').append(html);
     });
+
+    // tax select box for USA
+    $.getJSON("assets/json/states.json", function( data ) {
+     var html = '';
+      //var items = '';
+      $.each( data, function( key, val ) {
+
+        html += '<option value="' + val.tax_rate  + '">' + val.state_name + '</option>';
+      });
+        $('#us_states').append(html);
+    });
+
 
     // apply tax on select box change
     // for Canada
@@ -233,7 +248,7 @@
             tax_rate = active_tab.find('select').val();
         calculate_canada_prices(tax_rate);
 
-        /*var emp = +$('#employees_num').val(),
+        var emp = +$('#employees_num').val(),
             price_per_emp = get_price_by_range(emp)[0],
 
             flag = '<img src="assets/img/can20.png" alt="Canada">',
@@ -249,7 +264,7 @@
             annual_added_premium = annual_added_tax * fluctuation_index; // add Premium for Canada
 
         $('#total_monthly').html(flag + ' $' + currency_formatted(monthly_added_premium));
-        $('#total_annual').html(flag + ' $' + currency_formatted(annual_added_premium));*/
+        $('#total_annual').html(flag + ' $' + currency_formatted(annual_added_premium));
 
     });
 
@@ -258,26 +273,30 @@
     $('#us_states').on('change', function(){
         // enable order btns since we are applying taxes now
         $('#order_monthly, #order_annual').prop('disabled', false);
-        calculate_usa_prices();
+        // get tax rate from selected province
+        var active_tab = $('.tab-pane.active'),
+            tax_rate = active_tab.find('select').val();
 
-        /*var emp = +$('#employees_num').val(),
+        calculate_usa_prices(tax_rate);
+
+        var emp = +$('#employees_num').val(),
             price_per_emp = get_price_by_range(emp)[0],
 
-            flag = '<img src="assets/img/us20.png" alt="Canada">',
+            flag = '<img src="assets/img/us20.png" alt="USA">',
 
             total_monthly = +(price_per_emp * (+emp)).toFixed(2),
             total_annual = total_monthly * 12,
             discount_annual_sum = (total_annual * (discount/100)).toFixed(2),
             discount_annual = +(total_annual - discount_annual_sum).toFixed(2),
-
-            mothly_added_tax = (total_monthly + (total_monthly * (5/100))).toFixed(2), // FIXED TAX RATE FOR USA STATES, for now
-            annual_added_tax = (discount_annual + (discount_annual * (5/100))).toFixed(2); // FIXED TAX RATE FOR USA STATES, for now
+            tax = $(this).val(),
+            mothly_added_tax = (total_monthly + (total_monthly * (tax/100))).toFixed(2), // FIXED TAX RATE FOR USA STATES, for now
+            annual_added_tax = (discount_annual + (discount_annual * (tax/100))).toFixed(2); // FIXED TAX RATE FOR USA STATES, for now
             console.log('Discount Sum', discount_annual_sum);
             console.log('Total Discounted', discount_annual);
             console.log('annual_added_tax', annual_added_tax);
 
         $('#total_monthly').html(flag + ' $' + currency_formatted(mothly_added_tax));
-        $('#total_annual').html(flag + ' $' + currency_formatted(annual_added_tax));*/
+        $('#total_annual').html(flag + ' $' + currency_formatted(annual_added_tax));
 
     });
 
@@ -300,9 +319,10 @@
                 annual_added_premium = annual_added_tax * fluctuation_index, // add Premium for Canada
                 save = ((12 * monthly_added_premium.toFixed(2)) - annual_added_premium.toFixed(2)).toFixed(2); // save amount for annual subcription compared to month-by-month
 
-                /*console.log(monthly_added_premium);
+                console.log('Annual dicount', discount_annual_sum);
+                console.log(monthly_added_premium);
                 console.log(annual_added_premium);
-                console.log('Canada', save);*/
+               // console.log('Canada', save);
 
             $('#total_monthly').html(flag + ' $' + currency_formatted(monthly_added_premium));
 
@@ -320,9 +340,9 @@
         }
     }
 
-    function calculate_usa_prices(){
+    function calculate_usa_prices(tax_rate){
         // TODO: USA tax rate is still fixed to 5% for each state
-
+        if(tax_rate){
             var emp = +$('#employees_num').val(),
                 price_per_emp = get_price_by_range(emp)[0],
 
@@ -332,9 +352,9 @@
                 total_annual = total_monthly * 12,
                 discount_annual_sum = (total_annual * (discount/100)).toFixed(2),
                 discount_annual = +(total_annual - discount_annual_sum).toFixed(2),
-
-                mothly_added_tax = (total_monthly + (total_monthly * (5/100))).toFixed(2), // FIXED TAX RATE FOR USA STATES, for now
-                annual_added_tax = (discount_annual + (discount_annual * (5/100))).toFixed(2), // FIXED TAX RATE FOR USA STATES, for now
+                 tax = (+tax_rate),
+                mothly_added_tax = (total_monthly + (total_monthly * (tax/100))).toFixed(2), // FIXED TAX RATE FOR USA STATES, for now
+                annual_added_tax = (discount_annual + (discount_annual * (tax/100))).toFixed(2), // FIXED TAX RATE FOR USA STATES, for now
                 save = ((12 * mothly_added_tax) - annual_added_tax).toFixed(2); // save amount for annual subcription compared to month-by-month
                 /*console.log(mothly_added_tax);
                 console.log(annual_added_tax);
@@ -353,6 +373,7 @@
             $('#total_annual').attr('data-currency', 'USD');
 
             $('#saved').html('You save $' + currency_formatted(save));
+        }
     }
 
     // format curency HTML
@@ -380,32 +401,18 @@
 
 
 
-// flag
-/*$('img.tax_flags').on('click', function(e){
-    console.log(e.target.id);
-    $('img.tax_flags').removeClass('tax_selected');
-    $(this).toggleClass('tax_selected');
-});*/
-
-/*$('#myTabs a').click(function (e) {
-  e.preventDefault()
-  console.log(e.target.id);
-})*/
 
 
 
 // show Canada tab on page load
 $('#canada_tax').tab('show');
 
-// add Canada falgs on total prices on windows load
- // $('.current_flag').html('<img src="assets/img/can20.png">');
+
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-   // console.log(e.target); // newly activated tab
-    //console.log(e.relatedTarget); // previous active tab
-   /* var active_tab = $('.tab-pane.active');
-    console.log(active_tab);
-    console.log(active_tab.find('select').val());*/
+    // reset calculations of previous tab
+    $('#total_monthly, #total_annual').html('');
+
     var active_tab = $('.tab-pane.active'),
         tax_rate = active_tab.find('select').val(),
         current_tab = e.target.id,
@@ -417,7 +424,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     }else if(current_tab == 'tax_usa'){
         current_flag = 'us20.png';
         $('#total_monthly').attr('data-country', 'USA');
-        calculate_usa_prices();
+        calculate_usa_prices(tax_rate);
     }
     // dusplay flag in total prices
     //$('.current_flag').html('<img src="assets/img/' + current_flag + '">');
@@ -461,7 +468,7 @@ $('#order_annual').on('click', function(e){
     e.preventDefault();
     $('#monthly_modal').modal('show');
 
-   /* var active_tab = $('ul#myTabs li.active a').attr('id');
+    var active_tab = $('ul#myTabs li.active a').attr('id');
 
     console.log(get_selected_currency(active_tab));
 
@@ -474,7 +481,7 @@ $('#order_annual').on('click', function(e){
     $('#country').val($('#total_monthly').attr('data-country'));
     $('#currency').val(get_selected_currency(active_tab));
     $('#total').val($('#total_annual').attr('data-annual-total'));
-    $('#total_employees').val($('#employees_num').val());*/
+    $('#total_employees').val($('#employees_num').val());
 });
 
 
@@ -492,19 +499,18 @@ $('#payment_proceed').on('submit', function(e){
         success: function(data, textStatus, jqXHR) {
             if(data){
                 console.log(data);
+
             }
             var json = JSON.parse(data);
             console.log(json);
-
-            // TODO: check for error return and take appropriate action
 
             console.log(json);
             console.log(json.order_key);
             console.log(json.order_id);
 
             if(json.order_key && json.order_id){
-                //window.location = 'https://www.talentclick.com/checkout/order-pay/' + json.order_id + '?pay_for_order=true&key=' + json.order_key;
-                //window.location = 'https://www.talentclick.com/checkout/order-pay/' + json.order_id + '?pay_for_order=true&key=' + json.order_key;
+                console.log('JSON OK');
+                window.location = 'https://www.talentclick.com/checkout/order-pay/' + json.order_id + '?pay_for_order=true&key=' + json.order_key;
             }
         },
         error: function(jqXHR, status, error) {

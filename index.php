@@ -54,7 +54,11 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <h1 class="green_heading">Price Calculator</h1>
-                <h3>Subscription Pricing for Small &amp; Med Sized Companies</h3>
+                <h3>Subscription Pricing for Small &amp; Medium Sized Companies</h3>
+            </div>
+            <div class="col-md-8 col-md-offset-2 shadow text-center">
+              <p class="font16">Predict strengths and risks for <b>ALL</b> your existing employees and potential hires.</p>
+              <p class="font16">Go ahead, <b>test everyone</b>!</p>
             </div>
         </div><!-- ./row -->
     </div><!-- ./ container -->
@@ -65,8 +69,8 @@
             <div class="col-md-8 col-md-offset-2 greenBg calc_wrapper">
               <div class="row">
                 <div class="col-md-12 mT5 text-center">
-                  User the slider or manually insert the number of employees in your organization
-                  <span class="small blocked pT5">(or in your business unit, department, or division, if this tool will be used on a smaller scale)</span>
+                  Use the slider or manually insert the number of employees in your organization
+                  <span class="small blocked pT5">(or in your business unit, department or division, if this tool will be used on a smaller scale)</span>
                   <hr class="divider">
                 </div>
               </div>
@@ -206,58 +210,7 @@
                                   <label class="col-xs-12" for="us_states"><img src="assets/img/us40.png" alt="USA"> Select State</label>
                                   <div class="col-xs-12">
                                     <select class="form-control selected_value" id="us_states">
-                                      <option disabled selected value>Select US State</option>
-                                      <option value="AL">Alabama</option>
-                                      <option value="AK">Alaska</option>
-                                      <option value="AZ">Arizona</option>
-                                      <option value="AR">Arkansas</option>
-                                      <option value="CA">California</option>
-                                      <option value="CO">Colorado</option>
-                                      <option value="CT">Connecticut</option>
-                                      <option value="DE">Delaware</option>
-                                      <option value="DC">District Of Columbia</option>
-                                      <option value="FL">Florida</option>
-                                      <option value="GA">Georgia</option>
-                                      <option value="HI">Hawaii</option>
-                                      <option value="ID">Idaho</option>
-                                      <option value="IL">Illinois</option>
-                                      <option value="IN">Indiana</option>
-                                      <option value="IA">Iowa</option>
-                                      <option value="KS">Kansas</option>
-                                      <option value="KY">Kentucky</option>
-                                      <option value="LA">Louisiana</option>
-                                      <option value="ME">Maine</option>
-                                      <option value="MD">Maryland</option>
-                                      <option value="MA">Massachusetts</option>
-                                      <option value="MI">Michigan</option>
-                                      <option value="MN">Minnesota</option>
-                                      <option value="MS">Mississippi</option>
-                                      <option value="MO">Missouri</option>
-                                      <option value="MT">Montana</option>
-                                      <option value="NE">Nebraska</option>
-                                      <option value="NV">Nevada</option>
-                                      <option value="NH">New Hampshire</option>
-                                      <option value="NJ">New Jersey</option>
-                                      <option value="NM">New Mexico</option>
-                                      <option value="NY">New York</option>
-                                      <option value="NC">North Carolina</option>
-                                      <option value="ND">North Dakota</option>
-                                      <option value="OH">Ohio</option>
-                                      <option value="OK">Oklahoma</option>
-                                      <option value="OR">Oregon</option>
-                                      <option value="PA">Pennsylvania</option>
-                                      <option value="RI">Rhode Island</option>
-                                      <option value="SC">South Carolina</option>
-                                      <option value="SD">South Dakota</option>
-                                      <option value="TN">Tennessee</option>
-                                      <option value="TX">Texas</option>
-                                      <option value="UT">Utah</option>
-                                      <option value="VT">Vermont</option>
-                                      <option value="VA">Virginia</option>
-                                      <option value="WA">Washington</option>
-                                      <option value="WV">West Virginia</option>
-                                      <option value="WI">Wisconsin</option>
-                                      <option value="WY">Wyoming</option>
+                                      <option disabled selected value>Select A State</option>
                                     </select>
                                   </div>
 
@@ -314,10 +267,10 @@
             </div><!-- ./ calc_wrapper -->
 
             <div class="col-md-8 col-md-offset-2 shadow mT10">
-              <p>For companies with >250 employees, contact TalentClick for pricing (1-877-723-3778 or sales@talentclick.com)</p>
-              <p>The # employees will be reviewed yearly and pricing may be adjusted.</p>
-              <p><b>*</b> Monthly payments must be via credit card with automatic pre-approval. 12 consecutive monthly payments will be charged.</p>
-              <p><b>**</b> Full annual amount must be paid in advance using credit card, and will qualify for an additional 15% discount.</p>
+              <p>For companies with more than 250 employees, contact TalentClick to receive high volume discounts (1-877-723- 3778 or sales@talentclick.com).</p>
+              <p>The number of employees will be reviewed yearly and pricing may be adjusted.</p>
+              <p><b>*</b> Monthly payments must be via credit card with automatic pre-approval. 12 consecutive monthly payments will be charged, and your monthly rate is locked in for one year.</p>
+              <p><b>**</b> Full annual amount must be paid in advance using credit card in order to qualify for the additional 15% discount.</p>
             </div>
 
         </div><!-- ./row -->
@@ -376,8 +329,19 @@
                       </div>
                     </div>
 
-                    <div class="form-group">
-                      <input type="text" name="address_1" id="address_1" class="form-control input-sm" placeholder="Address" required>
+
+
+                    <div class="row">
+                      <div class="col-xs-8 col-sm-8 col-md-8">
+                        <div class="form-group">
+                          <input type="text" name="address_1" id="address_1" class="form-control input-sm" placeholder="Address" required>
+                        </div>
+                      </div>
+                      <div class="col-xs-4 col-sm-4 col-md-4">
+                        <div class="form-group">
+                          <input type="text" name="postcode" id="postcode" class="form-control input-sm" placeholder="Post code" required>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="row">
@@ -406,6 +370,11 @@
                       </div>
                     </div>
                     <input type="hidden" name="key" value="k95951617">
+                    <input type="hidden" name="currency" id="currency" value="CAD">
+                    <input type="hidden" name="subscription_type" id="subscription_type" value="monthly">
+                    <input type="hidden" name="total" id="total" value="">
+                    <input type="hidden" name="total_employees" id="total_employees" value="">
+
                     <div class="form-group">
                       <textarea class="form-control" rows="3" id="customer_note" name="customer_note" placeholder="Notes"></textarea>
                     </div>
@@ -442,7 +411,7 @@
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/nouislider.min.js"></script>
         <script src="assets/js/wNumb.js"></script>
-        <script src="assets/js/calculator_3.js"></script>
+        <script src="assets/js/calculator_2.js"></script>
 
     </body>
 </html>
